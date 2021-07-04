@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="forecast"
+            type="com.koti.weatherreport.network.dto.Forecast" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="7PM"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toTopOf="@+id/weatherType"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/listHeaderStyle"
+            setTime="@{forecast.dt}"/>
+
+        <ImageView
+            android:id="@+id/weatherType"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_20"
+            android:src="@drawable/ic_sun"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toTopOf="@+id/temp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/time"
+            app:tint="@color/forecast_icon_tint"
+            setForecastIcon="@{forecast.weather[0].main}"/>
+
+        <TextView
+            android:id="@+id/temp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="30"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weatherType"
+            style="@style/listHeaderStyle"
+            setTemperature="@{forecast.main.feelsLike}"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

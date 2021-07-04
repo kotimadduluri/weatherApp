@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.koti.weatherreport.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_city_space"
+            app:destination="@+id/navigation_city_space"
+            />
+        <action
+            android:id="@+id/action_home_to_place_picker"
+            app:destination="@+id/navigation_place_picker"
+            />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.koti.weatherreport.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settings_to_help"
+            app:destination="@+id/navigation_help"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_city_space"
+        android:name="com.koti.weatherreport.ui.cityScreen.CityFragment"
+        android:label="@string/title_city"
+        tools:layout="@layout/city_fragment" >
+        <argument
+            android:name="cityId"
+            app:argType="long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_place_picker"
+        android:name="com.koti.weatherreport.ui.placePicker.PlacePickerFragment"
+        android:label="@string/title_select_location"
+        tools:layout="@layout/fragment_place_picker" />
+
+    <fragment
+        android:id="@+id/navigation_help"
+        android:name="com.koti.weatherreport.ui.help.HelpFragment"
+        android:label="@string/help"
+        tools:layout="@layout/help_fragment" />
+</navigation>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <import type="kotlin.Pair"/>
+        <variable
+            name="forecast"
+            type="com.koti.weatherreport.pojo.ForecastListItem" />  <!--to bind pair-->
+    </data>
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/itemCard"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:focusable="true"
+            android:checkable="true"
+            android:clickable="true"
+            app:cardElevation="5dp"
+            android:layout_margin="@dimen/dp_10"
+            app:cardCornerRadius="@dimen/dp_10">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dataContainer"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/gradient1"
+                android:padding="@dimen/dp_10">
+                <ImageView
+                    android:layout_width="@dimen/card_background_icon_size"
+                    android:layout_height="@dimen/card_background_icon_size"
+                    android:src="@drawable/ic_cloud_50"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                <TextView
+                    android:id="@+id/date"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{forecast.date}"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/item_card_header_text_size"
+                    android:textColor="@color/white"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/forecastList"
+                    app:layout_constraintTop_toBottomOf="@+id/date"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                    app:spanCount="1"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/dp_10"
+                    tools:listitem="@layout/item_forecast_sublist_item"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    attachForecastDetails="@{forecast.forecasts}"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

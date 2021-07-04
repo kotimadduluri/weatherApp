@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">WeatherReport</string>
+    <string name="title_home">Home</string>
+    <string name="title_city">City</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_select_location">Select Location</string>
+    <string name="default_info_title">You</string>
+    <string name="default_info_snippet">Default location</string>
+    <string name="location">Location</string>
+    <string name="save">Save</string>
+    <string name="fetching_data">Fetching data</string>
+    <string name="no_records">No records</string>
+    <string name="help">Help</string>
+</resources>
