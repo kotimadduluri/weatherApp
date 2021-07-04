@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.koti.weatherreport.R
 import com.koti.weatherreport.databinding.ItemForecastCardsBinding
+import com.koti.weatherreport.helper.getCardBackground
 import com.koti.weatherreport.network.dto.Forecast
 import com.koti.weatherreport.pojo.ForecastListItem
 
@@ -20,26 +21,6 @@ class ForecastsListAdapter() : RecyclerView.Adapter<ForecastsListAdapter.ViewHol
                 binder.forecast=item
                 binder.executePendingBindings()
                 findViewById<ConstraintLayout>(R.id.dataContainer).setBackgroundResource(getCardBackground())
-            }
-        }
-
-        private fun getCardBackground(): Int {
-            return when (adapterPosition%5) {
-                0 -> {
-                    R.drawable.gradient1
-                }
-                1 -> {
-                    R.drawable.gradient2
-                }
-                2 -> {
-                    R.drawable.gradient3
-                }
-                3 -> {
-                    R.drawable.gradient4
-                }
-                else -> {
-                    R.drawable.gradient5
-                }
             }
         }
     }

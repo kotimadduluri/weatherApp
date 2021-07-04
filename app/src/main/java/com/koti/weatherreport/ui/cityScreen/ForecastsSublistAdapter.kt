@@ -7,33 +7,12 @@ import com.koti.weatherreport.R
 import com.koti.weatherreport.databinding.ItemForecastSublistItemBinding
 import com.koti.weatherreport.network.dto.Forecast
 
-class ForecastsSublistAdapter(val items: ArrayList<Forecast>) : RecyclerView.Adapter<ForecastsSublistAdapter.ViewHolder>() {
+class ForecastsSublistAdapter(private val items: ArrayList<Forecast>) : RecyclerView.Adapter<ForecastsSublistAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binder: ItemForecastSublistItemBinding) : RecyclerView.ViewHolder(binder.root) {
         fun bindData(item: Forecast) {
             binder.forecast=item
             binder.executePendingBindings()
-            //child.findViewById<ConstraintLayout>(R.id.dataContainer).setBackgroundResource(getCardBackground())
-        }
-
-        private fun getCardBackground(): Int {
-            return when (adapterPosition%5) {
-                0 -> {
-                    R.drawable.gradient1
-                }
-                1 -> {
-                    R.drawable.gradient2
-                }
-                2 -> {
-                    R.drawable.gradient3
-                }
-                3 -> {
-                    R.drawable.gradient4
-                }
-                else -> {
-                    R.drawable.gradient5
-                }
-            }
         }
     }
 

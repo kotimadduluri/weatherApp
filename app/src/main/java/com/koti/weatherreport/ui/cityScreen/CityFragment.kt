@@ -22,6 +22,10 @@ import java.lang.Exception
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
+/**
+ * @author koti
+ * Fragment to show selected location details
+ */
 @AndroidEntryPoint
 class CityFragment : Fragment(R.layout.city_fragment) {
 

@@ -6,8 +6,8 @@ import java.time.ZoneId
 import java.util.*
 
 object TimeUtil {
-    val dateFormat = SimpleDateFormat("MM/dd/yyyy")
-    val timeFormat = SimpleDateFormat("hhaa")
+    private val dateFormat = SimpleDateFormat("MM/dd/yyyy")
+    private val timeFormat = SimpleDateFormat("hhaa")
     fun getDateByEpochTimeStamp(time:Int):String=if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
         Instant.ofEpochMilli(time*1000L)
             .atZone(ZoneId.systemDefault())

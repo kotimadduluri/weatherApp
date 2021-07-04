@@ -38,7 +38,7 @@ import java.util.*
 class PlacePickerFragment : Fragment(R.layout.fragment_place_picker) {
     private val TAG = "PlacePickerFragment"
 
-    val viewModel by viewModels<PlacePickerViewModel>()
+    private val viewModel by viewModels<PlacePickerViewModel>()
 
     //var declaration
     private var mPlacesClient: PlacesClient? = null
@@ -54,13 +54,13 @@ class PlacePickerFragment : Fragment(R.layout.fragment_place_picker) {
 
     lateinit var  locationProgressBar:LinearLayout
     lateinit var dataHolder:RelativeLayout
-    lateinit var _tvTitle:TextView
-    lateinit var _tvAddressFullDetails:TextView
-    lateinit var _btnSaveAddress:MaterialButton
+    private lateinit var _tvTitle:TextView
+    private lateinit var _tvAddressFullDetails:TextView
+    private lateinit var _btnSaveAddress:MaterialButton
 
-    var activePickedAddress:LocationBookMark?=null
+    private var activePickedAddress:LocationBookMark?=null
 
-    lateinit var googleMap: GoogleMap
+    private lateinit var googleMap: GoogleMap
     private val callback = OnMapReadyCallback { googleMap ->
         this.googleMap = googleMap
         // Enable the zoom controls for the map

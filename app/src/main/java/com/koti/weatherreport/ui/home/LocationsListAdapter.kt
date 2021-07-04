@@ -9,6 +9,7 @@ import com.google.android.material.card.MaterialCardView
 import com.koti.weatherreport.R
 import com.koti.weatherreport.databinding.ItemWeatherCardsBinding
 import com.koti.weatherreport.db.LocationWithLastSyncDetails
+import com.koti.weatherreport.helper.getCardBackground
 
 class LocationsListAdapter(val itemClickListener: ItemClickListner) : RecyclerView.Adapter<LocationsListAdapter.ViewHolder>() {
 
@@ -29,26 +30,6 @@ class LocationsListAdapter(val itemClickListener: ItemClickListner) : RecyclerVi
             itemView.findViewById<ConstraintLayout>(R.id.dataContainer).setBackgroundResource(getCardBackground())
             binder.location=itemData
             binder.executePendingBindings()
-        }
-
-        private fun getCardBackground(): Int {
-            return when (adapterPosition%5) {
-                0 -> {
-                    R.drawable.gradient1
-                }
-                1 -> {
-                    R.drawable.gradient2
-                }
-                2 -> {
-                    R.drawable.gradient3
-                }
-                3 -> {
-                    R.drawable.gradient4
-                }
-                else -> {
-                    R.drawable.gradient5
-                }
-            }
         }
     }
 
